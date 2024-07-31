@@ -1,15 +1,17 @@
-import csv
+import csv,os
 from shop import Shop
 from item import Item
 from customer import Customer
 
-
+# 実行ファイルのディレクトリを取得
+current_dir = os.path.dirname(os.path.abspath(__file__))
+products_path = os.path.join(current_dir, 'products.csv')
 class Program:
 
     __SHOP_NAME = 'ジョイ'
     __PRODUCT_NAME = []
     __PRODUCE_PRICE = []
-    with open("./products.csv","r",encoding="utf-8") as f:
+    with open(products_path,"r",encoding="utf-8") as f:
         reader = csv.reader(f)
         next(reader)
         for ro in reader:
